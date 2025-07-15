@@ -1,7 +1,7 @@
 import { AUTH_CHANGE_PASSWORD, AUTH_LOGIN } from "@/constants/apiPaths/auth"
-import type { AuthResponseAPI } from "@/Models"
+import type { AuthResponseAPI } from "@/models"
 import type { ChangePasswordRequestService, LoginRequestService } from "../request"
-import { connection, instanceMain } from "../connection"
+import { connection, instanceMain } from "@/connection"
 
 const API = connection(instanceMain)
 

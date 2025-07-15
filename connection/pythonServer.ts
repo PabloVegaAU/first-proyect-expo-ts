@@ -1,4 +1,4 @@
-import { PYTHON_SERVER_URL } from "@/config/config"
+import { PYTHON_SERVER_URL } from "@/config"
 import axios, { type AxiosInstance } from "axios"
 
 const controllerInstance = new AbortController()

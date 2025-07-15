@@ -1,6 +1,6 @@
-import { BASE_URL_API } from "@/config/config"
+import { BASE_URL_API } from "@/config"
 import { USER_TOKEN_STORAGE } from "@/constants/constConfig"
-import { getStorage } from "@/Services/storageServices"
+import { getStorage } from "@/utils/storageServices"
 import axios, { type AxiosInstance } from "axios"
 
 const controllerInstance = new AbortController()
