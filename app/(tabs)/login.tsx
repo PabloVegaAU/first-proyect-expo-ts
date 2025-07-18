@@ -7,6 +7,7 @@ import { Image } from 'expo-image'
 import { useEffect, useState } from 'react'
 import { StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native'
 import { schema } from './schema'
+import axios from 'axios'
 
 
 export default function LoginScreen() {
@@ -16,9 +17,20 @@ export default function LoginScreen() {
       password: '',
     },
     onSubmit: async ({ value }) => {
-      console.log('Datos del Login:', value)
-    },
+      try {
+        const response = await axios.post('https://fdrtzxg1-8080.brs.devtunnels.ms/v1/core/api/auth/login', {
+          username: value.username,
+          password: value.password,
+        })
+    
+        console.log(response.data)
+      } catch (error: any) {
+        console.error(error.response?.data || error.message)
+      }
+    }
+    
   })
+  
 
   const [, forceUpdate] = useState(0)
 
