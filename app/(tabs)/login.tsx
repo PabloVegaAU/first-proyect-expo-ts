@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 import { StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native'
 import { schema } from './schema'
 import axios from 'axios'
+import { useUserStore } from '@/store/user'
 
 
 export default function LoginScreen() {
@@ -22,11 +23,12 @@ export default function LoginScreen() {
           username: value.username,
           password: value.password,
         })
+        useUserStore.setState({ token: response.data.token })
+        useUserStore.setState({ user: response.data.user })
     
-        console.log(response.data)
+        console.log('Login exitoso. Token:', response.data.token)
       } catch (error: any) {
-        console.error(error.response?.data || error.message)
-      }
+        console.error('Error de login:', error.response?.data || error.message)
     }
     
   })
